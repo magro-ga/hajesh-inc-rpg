@@ -1,1 +1,1 @@
-# Criando um site de RPG como projeto de faculdade
+# Criando uma API de RPG como projeto de faculdade
