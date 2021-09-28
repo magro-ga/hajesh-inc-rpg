@@ -1,0 +1,28 @@
+{
+  "name": "rest-api",
+  "version": "1.0.0",
+  "description": "Test de REST API para aplicação de RPG",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/magro-ga/projeto-uc-sd-mobile-rpg.git"
+  },
+  "keywords": [
+    "node",
+    "rpg",
+    "de",
+    "mesa"
+  ],
+  "author": "grupo F",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/magro-ga/projeto-uc-sd-mobile-rpg/issues"
+  },
+  "homepage": "https://github.com/magro-ga/projeto-uc-sd-mobile-rpg#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
