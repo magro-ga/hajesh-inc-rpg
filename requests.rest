@@ -1,0 +1,12 @@
+GET http://localhost:3000/users/6
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiR2lvdmFubmkgT3RhIiwiaWF0IjoxNjMzMTMyMTAyfQ.yctD8MMTQB7Yg1A3YTC00dJ73Xv09VYteWPizzwSkZU
+
+###
+
+POST  http://localhost:3000/login
+Content-Type: application/json
+
+{
+    "username":"Giovanni Ota"
+}

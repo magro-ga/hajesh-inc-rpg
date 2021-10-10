@@ -4,6 +4,8 @@
   "description": "Test de REST API para aplicação de RPG",
   "main": "index.js",
   "scripts": {
+    "start": "nodemon index.js",
+    "devStarAuth": "nodemon authServer.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
