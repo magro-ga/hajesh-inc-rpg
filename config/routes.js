@@ -19,6 +19,12 @@ let dbRoles = [
     { Id: '2', Role: "Admin" }
 ]
 
+let dbItens = [
+    { Id: '1', Nome: "Espada do Rei", Tipo: "Ataque", Efeito: "+15 Ataque", Decrição: "Sangramento" },
+    { Id: '2', Nome: "Courança de Defunto", Tipo: "Defesa" , Efeito: "+20 Defesa", Decrição: "Eficaz contra dano físico" },
+    { Id: '3', Nome: "Tormenta de Lúden", Tipo: "Mágico" , Efeito: "+30 Poder Mágico", Decrição: "Penetração" }
+]
+
 // logar usuário
 routes.post('/login', (req, res) => {
     // Authenticate User
@@ -117,6 +123,93 @@ routes.delete('/users/:id', authenticateToken, (req, res) => {
         return res.status(200).send(newDB);
     }else{
         res.status(403).send({ Message: "The user have no permission"})
+    }
+})
+
+// listar itens
+routes.get('/itens/', authenticateToken, (req, res) => {
+    var user = verifyUser(req);
+    console.log(user)
+    if(user.Status){
+        res.status(200).json(dbItens);
+    }else{ 
+        res.status(403).json({ Message: "The user have no permission"});
+    }
+})
+
+// buscar item
+routes.get('/itens/:id', authenticateToken, (req, res) => {
+    var user = verifyUser(req);
+
+    if(user.Status){
+        dbItens.forEach((item) => {
+            if(item.Id === req.params.id){
+                res.status(200).json(item)
+            }
+        })
+        res.status(404).send({ Message: "The item doesn´t exist!"})
+    }else{
+        res.status(403).send({ Message: "The user have no permission to see this item"})
+    }
+})
+
+// criar item
+routes.post('/itens/:id', authenticateToken, (req, res) => {
+    var user = verifyUser(req);
+
+    if(user.Status){
+        const body = req.body;
+
+        if(!body)
+            return res.status(400)
+
+        if(user.User.Role == 2)
+            body.Id = contador +=1;
+            dbItens.push(body)
+            return res.status(200).send(db)
+
+    }else{
+        res.status(403).send({ Message: "The user have no permission"})
+    }
+})
+
+// atualizar item
+routes.put('/itens/:id', authenticateToken, (req, res) => {
+    var user = verifyUser(req);
+
+    if(user.Status && user.User.Role == 2){
+        var itensBody = req.body
+
+        dbItens.forEach((item) => {
+            if(item.Id === itensBody.Id){
+                item.Nome = itensBody.Nome;
+                item.Tipo = itensBody.Tipo;
+                item.Efeito = itensBody.Efeito;
+                item.Decrição = itensBody.Decrição;
+                console.log(item);
+                res.status(200).json({Message: "Success, the item is updated!"});
+            }
+        })
+    }else{
+        res.status(403).json({ Message: "The user have no permission to update a item!!"});
+    }
+})
+
+// deletar item
+routes.delete('/itens/:id', authenticateToken, (req, res) => {
+    var user = verifyUser(req);
+
+    if(user.Status && user.User.Role == 2){
+        const id = req.params.id;
+
+        let newDB = dbItens.filter(item => {
+        if (item.Id != id)
+            return item
+    })
+        dbItens = newDB
+        return res.status(200).send(newDB);
+    }else{
+        res.status(403).send({ Message: "The user have no permission to delete a item"})
     }
 })
 
