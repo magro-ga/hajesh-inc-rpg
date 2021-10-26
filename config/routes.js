@@ -7,13 +7,19 @@ const jwt = require('jsonwebtoken')
 
 let contador = 3;
 let db = [
-    { Id: '1', Nome: "Gustavo Sampaio", Email: "ghsampaio1105@gmail.com", Idade: "20", CPF: "50284865818"},
-    { Id: '2', Nome: "Vitória Catani", Email: "vicatani@gmail.com", Idade: "20", CPF: "01234567890"},
-    { Id: '3', Nome: "Anderson Sampaio", Email: "and.sampa@globo.com", Idade: "48", CPF: "13563049823"},
-    { Id: '4', Nome: "Misael Alves", Email: "misael@globo.com", Idade: "2", CPF: "13563049823"},
-    { Id: '5', Nome: "Giovanni Ota", Email: "gigiota@globo.com", Idade: "20", CPF: "13563049823"}
+    { Id: '1', Nome: "Gustavo Sampaio", Email: "ghsampaio1105@gmail.com", Idade: "20", CPF: "50284865818", Role: 2 },
+    { Id: '2', Nome: "Vitória Catani", Email: "vicatani@gmail.com", Idade: "20", CPF: "01234567890", Role: 1 },
+    { Id: '3', Nome: "Anderson Sampaio", Email: "and.sampa@globo.com", Idade: "48", CPF: "13563049823", Role: 1 },
+    { Id: '4', Nome: "Misael Alves", Email: "misael@globo.com", Idade: "2", CPF: "13563049823", Role: 1 },
+    { Id: '5', Nome: "Giovanni Ota", Email: "gigiota@globo.com", Idade: "20", CPF: "13563049823", Role: 2 },
 ]
 
+let dbRoles = [
+    { Id: '1', Role: "Jogador" },
+    { Id: '2', Role: "Admin" }
+]
+
+// logar usuário
 routes.post('/login', (req, res) => {
     // Authenticate User
 
@@ -24,16 +30,18 @@ routes.post('/login', (req, res) => {
     res.json({ accessToken: accessToken})
 })
 
-routes.get('/users', authenticateToken, (req, res) => {
+// listar usuários
+routes.get('/users/', authenticateToken, (req, res) => {
     var user = verifyUser(req);
     console.log(user)
-    if(user.Status){
+    if(user.Role == 2){
         res.status(200).json(db);
-    }else{
+    }else{ 
         res.status(403).json({ Message: "The user have no permission"});
     }
 })
 
+// buscar um usuário
 routes.get('/users/:id', authenticateToken,(req, res) => {
     var user = verifyUser(req);
 
@@ -49,6 +57,7 @@ routes.get('/users/:id', authenticateToken,(req, res) => {
     }
 })
 
+// criar usuário
 routes.post('/users', authenticateToken,(req, res) => {
     var user = verifyUser(req);
 
@@ -60,15 +69,19 @@ routes.post('/users', authenticateToken,(req, res) => {
 
         body.Id = contador +=1;
 
+        if(user.User.Role == 2){
+            body.Role == 2
+        }
+
         db.push(body)
         return res.status(200).send(db)
     }else{
         res.status(403).send({ Message: "The user have no permission"})
     }
-
 })
 
-routes.put('/users/', authenticateToken, (req, res) => {
+// atualizar
+routes.put('/users/:id', authenticateToken, (req, res) => {
     var user = verifyUser(req);
 
     if(user.Status){
@@ -89,15 +102,16 @@ routes.put('/users/', authenticateToken, (req, res) => {
     }
 })
 
+// deletar usuário
 routes.delete('/users/:id', authenticateToken, (req, res) => {
     var user = verifyUser(req);
 
-    if(user.Status){
+    if(user.Status && user.User.Role == 2){
         const id = req.params.id;
 
-        let newDB = db.filter(item => {
-        if (item.Id != id)
-            return item
+        let newDB = db.filter(user => {
+        if (user.Id != id)
+            return user
     })
         db = newDB
         return res.status(200).send(newDB);
@@ -106,6 +120,7 @@ routes.delete('/users/:id', authenticateToken, (req, res) => {
     }
 })
 
+// autenticação token
 function authenticateToken(req, res, next) {
     const authHeader = req.headers['authorization']
     const token = authHeader && authHeader.split(' ')[1]
@@ -118,6 +133,7 @@ function authenticateToken(req, res, next) {
     })
 }
 
+// autenticação usuário
 function verifyUser(req){
     console.log(req.user.name);
     var user = db.filter(db => db.Nome === req.user.name)
@@ -125,12 +141,12 @@ function verifyUser(req){
     if(user.length > 0){
         return {
             Status: true,
-            Id: user[0].Id
+            User: user[0]
         }
     }else{
         return {
-            status: false,
-            id: null
+            Status: false,
+            User: null
         }
     }
 }
