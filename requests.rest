@@ -1,12 +1,85 @@
-GET http://localhost:3000/users/6
-Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiR2lvdmFubmkgT3RhIiwiaWF0IjoxNjMzMTMyMTAyfQ.yctD8MMTQB7Yg1A3YTC00dJ73Xv09VYteWPizzwSkZU
-
-###
-
+// REQUISIÇÕES DE USUÁRIOS
 POST  http://localhost:3000/login
 Content-Type: application/json
 
 {
-    "username":"Giovanni Ota"
+    "username":"Gustavo Sampaio"
 }
+
+###
+GET http://localhost:3000/users/
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiR3VzdGF2byBTYW1wYWlvIiwiaWF0IjoxNjM1MjkyMjExfQ.TMAFqJC0OZXs_YlR_2wiUcdKRg_3ttsJ1QdyyOpi-yQ
+
+###
+GET http://localhost:3000/users/2
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiR3VzdGF2byBTYW1wYWlvIiwiaWF0IjoxNjM1MjkyMjExfQ.TMAFqJC0OZXs_YlR_2wiUcdKRg_3ttsJ1QdyyOpi-yQ
+
+###
+POST http://localhost:3000/users
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiR3VzdGF2byBTYW1wYWlvIiwiaWF0IjoxNjM1MjkyMjExfQ.TMAFqJC0OZXs_YlR_2wiUcdKRg_3ttsJ1QdyyOpi-yQ
+
+{
+    "Nome": "Rajesh Ota",
+    "Email": "rajesh@globo.com",
+    "Idade": "20",
+    "CPF": "123456789"
+}
+
+###
+PUT http://localhost:3000/users/5
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiR3VzdGF2byBTYW1wYWlvIiwiaWF0IjoxNjM1MjkyMjExfQ.TMAFqJC0OZXs_YlR_2wiUcdKRg_3ttsJ1QdyyOpi-yQ
+
+{   
+    "Nome": "João Victor Ota",
+    "Email": "rajesh@globo.com",
+    "Idade": "20",
+    "CPF": "123456789"
+}
+
+DELETE http://localhost:3000/users/5
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiR3VzdGF2byBTYW1wYWlvIiwiaWF0IjoxNjM1MjkyMjExfQ.TMAFqJC0OZXs_YlR_2wiUcdKRg_3ttsJ1QdyyOpi-yQ
+
+// REQUISIÇÕES DE ITENS
+###
+GET http://localhost:3000/itens/
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiR3VzdGF2byBTYW1wYWlvIiwiaWF0IjoxNjM1MjkyMjExfQ.TMAFqJC0OZXs_YlR_2wiUcdKRg_3ttsJ1QdyyOpi-yQ
+
+###
+GET http://localhost:3000/itens/2
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiR3VzdGF2byBTYW1wYWlvIiwiaWF0IjoxNjM1MjkyMjExfQ.TMAFqJC0OZXs_YlR_2wiUcdKRg_3ttsJ1QdyyOpi-yQ
+
+###
+POST http://localhost:3000/itens
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiR3VzdGF2byBTYW1wYWlvIiwiaWF0IjoxNjM1MjkyMjExfQ.TMAFqJC0OZXs_YlR_2wiUcdKRg_3ttsJ1QdyyOpi-yQ
+
+{
+  "Nome": "Espada Longa",
+  "Tipo": "Ataque",
+  "Efeito": "+25 Ataque",
+  "Decrição": "Espada GPC"
+}
+
+###
+PUT http://localhost:3000/itens/3
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiR3VzdGF2byBTYW1wYWlvIiwiaWF0IjoxNjM1MjkyMjExfQ.TMAFqJC0OZXs_YlR_2wiUcdKRg_3ttsJ1QdyyOpi-yQ
+
+{   
+    "Nome": "Espada Longa",
+    "Tipo": "Ataque",
+    "Efeito": "+25 Ataque",
+    "Decrição": "Espada GPC"
+}
+
+###
+DELETE http://localhost:3000/itens/3
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiR3VzdGF2byBTYW1wYWlvIiwiaWF0IjoxNjM1MjkyMjExfQ.TMAFqJC0OZXs_YlR_2wiUcdKRg_3ttsJ1QdyyOpi-yQ

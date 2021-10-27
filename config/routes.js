@@ -5,7 +5,7 @@ const express = require('express');
 const routes = express.Router()
 const jwt = require('jsonwebtoken')
 
-let contador = 3;
+let contador = 5;
 let db = [
     { Id: '1', Nome: "Gustavo Sampaio", Email: "ghsampaio1105@gmail.com", Idade: "20", CPF: "50284865818", Role: 2 },
     { Id: '2', Nome: "Vitória Catani", Email: "vicatani@gmail.com", Idade: "20", CPF: "01234567890", Role: 1 },
@@ -19,6 +19,7 @@ let dbRoles = [
     { Id: '2', Role: "Admin" }
 ]
 
+let itensCont = 3;
 let dbItens = [
     { Id: '1', Nome: "Espada do Rei", Tipo: "Ataque", Efeito: "+15 Ataque", Decrição: "Sangramento" },
     { Id: '2', Nome: "Courança de Defunto", Tipo: "Defesa" , Efeito: "+20 Defesa", Decrição: "Eficaz contra dano físico" },
@@ -40,7 +41,7 @@ routes.post('/login', (req, res) => {
 routes.get('/users/', authenticateToken, (req, res) => {
     var user = verifyUser(req);
     console.log(user)
-    if(user.Role == 2){
+    if(user.User.Role == 2){
         res.status(200).json(db);
     }else{ 
         res.status(403).json({ Message: "The user have no permission"});
@@ -76,9 +77,12 @@ routes.post('/users', authenticateToken,(req, res) => {
         body.Id = contador +=1;
 
         if(user.User.Role == 2){
-            body.Role == 2
+            body.Role = 2
         }
-
+        else {
+            body.Role = 1
+        }
+        
         db.push(body)
         return res.status(200).send(db)
     }else{
@@ -94,7 +98,7 @@ routes.put('/users/:id', authenticateToken, (req, res) => {
         var userBody = req.body
 
         db.forEach((users) => {
-            if(users.Id === user.Id){
+            if(users.Id === user.User.Id){
                 users.Nome = userBody.Nome;
                 users.Email = userBody.Email;
                 users.Idade = userBody.Idade;
@@ -154,7 +158,7 @@ routes.get('/itens/:id', authenticateToken, (req, res) => {
 })
 
 // criar item
-routes.post('/itens/:id', authenticateToken, (req, res) => {
+routes.post('/itens', authenticateToken, (req, res) => {
     var user = verifyUser(req);
 
     if(user.Status){
@@ -164,9 +168,9 @@ routes.post('/itens/:id', authenticateToken, (req, res) => {
             return res.status(400)
 
         if(user.User.Role == 2)
-            body.Id = contador +=1;
+            body.Id = itensCont +=1;
             dbItens.push(body)
-            return res.status(200).send(db)
+            return res.status(200).send(dbItens)
 
     }else{
         res.status(403).send({ Message: "The user have no permission"})
@@ -181,7 +185,7 @@ routes.put('/itens/:id', authenticateToken, (req, res) => {
         var itensBody = req.body
 
         dbItens.forEach((item) => {
-            if(item.Id === itensBody.Id){
+            if(item.Id === req.params.id){
                 item.Nome = itensBody.Nome;
                 item.Tipo = itensBody.Tipo;
                 item.Efeito = itensBody.Efeito;
