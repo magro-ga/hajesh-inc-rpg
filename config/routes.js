@@ -6,6 +6,9 @@ const routes = express.Router()
 const jwt = require('jsonwebtoken')
 
 let contador = 5;
+let itensCont = 3;
+
+//Base de dados usuarios
 let db = [
     { Id: '1', Nome: "Gustavo Sampaio", Email: "ghsampaio1105@gmail.com", Idade: "20", CPF: "50284865818", Role: 2 },
     { Id: '2', Nome: "Vitória Catani", Email: "vicatani@gmail.com", Idade: "20", CPF: "01234567890", Role: 1 },
@@ -14,12 +17,13 @@ let db = [
     { Id: '5', Nome: "Giovanni Ota", Email: "gigiota@globo.com", Idade: "20", CPF: "13563049823", Role: 2 },
 ]
 
+//Base de dados do cargos
 let dbRoles = [
     { Id: '1', Role: "Jogador" },
     { Id: '2', Role: "Admin" }
 ]
 
-let itensCont = 3;
+//Base de dados dos itens
 let dbItens = [
     { Id: '1', Nome: "Espada do Rei", Tipo: "Ataque", Efeito: "+15 Ataque", Decrição: "Sangramento" },
     { Id: '2', Nome: "Courança de Defunto", Tipo: "Defesa" , Efeito: "+20 Defesa", Decrição: "Eficaz contra dano físico" },
