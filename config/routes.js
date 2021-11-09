@@ -8,6 +8,8 @@ const jwt = require('jsonwebtoken')
 let contador = 5;
 let itensCont = 3;
 
+const blackList = [];
+
 //Base de dados usuarios
 let db = [
     { Id: '1', Nome: "Gustavo Sampaio", Email: "ghsampaio1105@gmail.com", Idade: "20", CPF: "50284865818", Role: 2 },
@@ -37,19 +39,24 @@ routes.post('/login', (req, res) => {
     const username = req.body.username
     const user = { name: username}
 
-    const accessToken = jwt.sign(user, process.env.ACCESS_TOKEN_SECRET, {expiresIn: 86400})
+    const accessToken = jwt.sign(user, process.env.ACCESS_TOKEN_SECRET, {expiresIn: 60})
     res.json({ accessToken: accessToken})
+})
+
+routes.get('/logout', (req, res) => {
+    blackList.push(req.headers['authorization'])
+    res.send("Bye!").end();
 })
 
 // listar usuários
 routes.get('/users/', authenticateToken, (req, res) => {
     var user = verifyUser(req);
-    console.log(user)
-    if(user.User.Role == 2){
+    if(!user.User.Role != null && user.User.Role == 2){
         res.status(200).json(db);
     }else{ 
         res.status(403).json({ Message: "The user have no permission"});
     }
+    
 })
 
 // buscar um usuário
@@ -72,27 +79,23 @@ routes.get('/users/:id', authenticateToken,(req, res) => {
 routes.post('/users', authenticateToken,(req, res) => {
     var user = verifyUser(req);
 
-    if(user.Status){
-        const body = req.body;
+    const body = req.body;
 
-        if(!body)
-            return res.status(400)
+    if(!body)
+        return res.status(400)
 
-        body.Id = contador +=1;
+    body.Id = contador +=1;
 
-        if(user.User.Role == 2){
-            body.Role = 2
-        }
-        else {
-            body.Role = 1
-        }
-        
+    if(user.User.Role == 2){
+        body.Role = 2
+     }
+    else {
+        body.Role = 1
+    }
         db.push(body)
         return res.status(200).send(db)
-    }else{
-        res.status(403).send({ Message: "The user have no permission"})
     }
-})
+)
 
 // atualizar
 routes.put('/users/:id', authenticateToken, (req, res) => {
@@ -107,7 +110,6 @@ routes.put('/users/:id', authenticateToken, (req, res) => {
                 users.Email = userBody.Email;
                 users.Idade = userBody.Idade;
                 users.CPF = userBody.CPF;
-                console.log(users);
                 res.status(200).json({Message: "Success, please make the request login again to update with the new name!"});
             }
         })
@@ -137,7 +139,6 @@ routes.delete('/users/:id', authenticateToken, (req, res) => {
 // listar itens
 routes.get('/itens/', authenticateToken, (req, res) => {
     var user = verifyUser(req);
-    console.log(user)
     if(user.Status){
         res.status(200).json(dbItens);
     }else{ 
@@ -194,7 +195,6 @@ routes.put('/itens/:id', authenticateToken, (req, res) => {
                 item.Tipo = itensBody.Tipo;
                 item.Efeito = itensBody.Efeito;
                 item.Decrição = itensBody.Decrição;
-                console.log(item);
                 res.status(200).json({Message: "Success, the item is updated!"});
             }
         })
@@ -236,9 +236,12 @@ function authenticateToken(req, res, next) {
 
 // autenticação usuário
 function verifyUser(req){
-    console.log(req.user.name);
     var user = db.filter(db => db.Nome === req.user.name)
-    console.log(user)
+    const authHeader = req.headers['authorization']
+    const index = blackList.findIndex(item => item === authHeader)
+
+    if(index !== -1) return { Status: false, User: {Role: null}}
+
     if(user.length > 0){
         return {
             Status: true,

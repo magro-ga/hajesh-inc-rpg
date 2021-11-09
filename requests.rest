@@ -7,14 +7,19 @@ Content-Type: application/json
 }
 
 ###
+GET http://localhost:3000/logout
+Content-Type:  application/application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiR3VzdGF2byBTYW1wYWlvIiwiaWF0IjoxNjM2NDE3ODA1LCJleHAiOjE2MzY0MTc4NjV9.gmPDfbnqBoCCpODXrYl50ZfnqnXzMyIc7uGNXkZRMbA
+
+###
 GET http://localhost:3000/users/
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiR3VzdGF2byBTYW1wYWlvIiwiaWF0IjoxNjM1MjkyMjExfQ.TMAFqJC0OZXs_YlR_2wiUcdKRg_3ttsJ1QdyyOpi-yQ
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiR3VzdGF2byBTYW1wYWlvIiwiaWF0IjoxNjM2NDE3ODA1LCJleHAiOjE2MzY0MTc4NjV9.gmPDfbnqBoCCpODXrYl50ZfnqnXzMyIc7uGNXkZRMbA
 
 ###
 GET http://localhost:3000/users/2
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiR3VzdGF2byBTYW1wYWlvIiwiaWF0IjoxNjM1MjkyMjExfQ.TMAFqJC0OZXs_YlR_2wiUcdKRg_3ttsJ1QdyyOpi-yQ
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiR3VzdGF2byBTYW1wYWlvIiwiaWF0IjoxNjM2NDE3ODA1LCJleHAiOjE2MzY0MTc4NjV9.gmPDfbnqBoCCpODXrYl50ZfnqnXzMyIc7uGNXkZRMbA
 
 ###
 POST http://localhost:3000/users
