@@ -12,7 +12,7 @@ Content-Type:  application/application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiR3VzdGF2byBTYW1wYWlvIiwiaWF0IjoxNjM2NDE3ODA1LCJleHAiOjE2MzY0MTc4NjV9.gmPDfbnqBoCCpODXrYl50ZfnqnXzMyIc7uGNXkZRMbA
 
 ###
-GET http://localhost:3000/users/
+GET http://localhost:3000/users
 Content-Type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiR3VzdGF2byBTYW1wYWlvIiwiaWF0IjoxNjM2NDE3ODA1LCJleHAiOjE2MzY0MTc4NjV9.gmPDfbnqBoCCpODXrYl50ZfnqnXzMyIc7uGNXkZRMbA
 
@@ -30,22 +30,24 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiR3VzdGF2b
     "Nome": "Rajesh Ota",
     "Email": "rajesh@globo.com",
     "Idade": "20",
-    "CPF": "123456789"
+    "CPF": "123456789",
+    "Role": 2
 }
 
 ###
-PUT http://localhost:3000/users/5
+PUT http://localhost:3000/users/3
 Content-Type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiR3VzdGF2byBTYW1wYWlvIiwiaWF0IjoxNjM1MjkyMjExfQ.TMAFqJC0OZXs_YlR_2wiUcdKRg_3ttsJ1QdyyOpi-yQ
 
 {   
     "Nome": "João Victor Ota",
     "Email": "rajesh@globo.com",
-    "Idade": "20",
+    "Idade": "25",
     "CPF": "123456789"
 }
 
-DELETE http://localhost:3000/users/5
+###
+DELETE http://localhost:3000/users/4
 Content-Type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiR3VzdGF2byBTYW1wYWlvIiwiaWF0IjoxNjM1MjkyMjExfQ.TMAFqJC0OZXs_YlR_2wiUcdKRg_3ttsJ1QdyyOpi-yQ
 
@@ -56,7 +58,7 @@ Content-Type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiR3VzdGF2byBTYW1wYWlvIiwiaWF0IjoxNjM1MjkyMjExfQ.TMAFqJC0OZXs_YlR_2wiUcdKRg_3ttsJ1QdyyOpi-yQ
 
 ###
-GET http://localhost:3000/itens/2
+GET http://localhost:3000/itens/3
 Content-Type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiR3VzdGF2byBTYW1wYWlvIiwiaWF0IjoxNjM1MjkyMjExfQ.TMAFqJC0OZXs_YlR_2wiUcdKRg_3ttsJ1QdyyOpi-yQ
 
@@ -73,18 +75,95 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiR3VzdGF2b
 }
 
 ###
-PUT http://localhost:3000/itens/3
+PUT http://localhost:3000/itens/2
 Content-Type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiR3VzdGF2byBTYW1wYWlvIiwiaWF0IjoxNjM1MjkyMjExfQ.TMAFqJC0OZXs_YlR_2wiUcdKRg_3ttsJ1QdyyOpi-yQ
 
 {   
-    "Nome": "Espada Longa",
-    "Tipo": "Ataque",
-    "Efeito": "+25 Ataque",
-    "Decrição": "Espada GPC"
+  "Nome": "Espada Curta",
+  "Tipo": "Ataque",
+  "Efeito": "+25 Ataque",
+  "Decrição": "Espada GPC"
 }
 
 ###
-DELETE http://localhost:3000/itens/3
+DELETE http://localhost:3000/itens/5
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiR3VzdGF2byBTYW1wYWlvIiwiaWF0IjoxNjM1MjkyMjExfQ.TMAFqJC0OZXs_YlR_2wiUcdKRg_3ttsJ1QdyyOpi-yQ
+
+###
+GET http://localhost:3000/rooms/
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiR3VzdGF2byBTYW1wYWlvIiwiaWF0IjoxNjM1MjkyMjExfQ.TMAFqJC0OZXs_YlR_2wiUcdKRg_3ttsJ1QdyyOpi-yQ
+
+###
+GET http://localhost:3000/rooms/1
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiR3VzdGF2byBTYW1wYWlvIiwiaWF0IjoxNjM1MjkyMjExfQ.TMAFqJC0OZXs_YlR_2wiUcdKRg_3ttsJ1QdyyOpi-yQ
+
+###
+POST http://localhost:3000/rooms
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiR3VzdGF2byBTYW1wYWlvIiwiaWF0IjoxNjM1MjkyMjExfQ.TMAFqJC0OZXs_YlR_2wiUcdKRg_3ttsJ1QdyyOpi-yQ
+
+{
+  "Nome": "Ilha da Wano",
+  "OwnerId": "3",
+  "Password": "wano1234",
+  "Amount": "3"
+}
+
+###
+PUT http://localhost:3000/rooms/2
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiR3VzdGF2byBTYW1wYWlvIiwiaWF0IjoxNjM1MjkyMjExfQ.TMAFqJC0OZXs_YlR_2wiUcdKRg_3ttsJ1QdyyOpi-yQ
+
+{
+    "Nome": "Ilha Nublar",
+    "OwnerId": "5",
+    "Password": "nublar123",
+    "Amount": "7"
+}
+
+###
+DELETE http://localhost:3000/rooms/1
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiR3VzdGF2byBTYW1wYWlvIiwiaWF0IjoxNjM1MjkyMjExfQ.TMAFqJC0OZXs_YlR_2wiUcdKRg_3ttsJ1QdyyOpi-yQ
+
+###
+GET http://localhost:3000/cards/
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiR3VzdGF2byBTYW1wYWlvIiwiaWF0IjoxNjM1MjkyMjExfQ.TMAFqJC0OZXs_YlR_2wiUcdKRg_3ttsJ1QdyyOpi-yQ
+
+###
+POST http://localhost:3000/cards
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiR3VzdGF2byBTYW1wYWlvIiwiaWF0IjoxNjM1MjkyMjExfQ.TMAFqJC0OZXs_YlR_2wiUcdKRg_3ttsJ1QdyyOpi-yQ
+
+{
+  "Nome": "Zayon",
+  "Tribe": "Ladino",
+  "Life": "1000",
+  "Atack": "290",
+  "Defense": "150",
+  "Description": "Maluco doido"
+}
+
+###
+PUT http://localhost:3000/cards/1
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiR3VzdGF2byBTYW1wYWlvIiwiaWF0IjoxNjM1MjkyMjExfQ.TMAFqJC0OZXs_YlR_2wiUcdKRg_3ttsJ1QdyyOpi-yQ
+
+{
+  "Nome": "Zayon",
+  "Tribe": "Ladino",
+  "Life": "1000",
+  "Atack": "290",
+  "Defense": "150",
+  "Description": "Maluco doido"
+}
+
+###
+DELETE http://localhost:3000/cards/2
 Content-Type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiR3VzdGF2byBTYW1wYWlvIiwiaWF0IjoxNjM1MjkyMjExfQ.TMAFqJC0OZXs_YlR_2wiUcdKRg_3ttsJ1QdyyOpi-yQ
