@@ -67,12 +67,12 @@ routes.get('/logout', (req, res) => {
 // listar usuários
 routes.get('/users/', authenticateToken, (req, res) => {
     var user = verifyUser(req);
-    if(!user.User.Role != null && user.User.Role == 2){
+
+    if(user.Status && user.User.Role == 2){
         res.status(200).json(db);
-    }else{ 
+    }else{
         res.status(403).json({ Message: "The user have no permission"});
     }
-    
 })
 
 // buscar um usuário

@@ -9,22 +9,22 @@ Content-Type: application/json
 ###
 GET http://localhost:3000/logout
 Content-Type:  application/application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiR3VzdGF2byBTYW1wYWlvIiwiaWF0IjoxNjM2NDE3ODA1LCJleHAiOjE2MzY0MTc4NjV9.gmPDfbnqBoCCpODXrYl50ZfnqnXzMyIc7uGNXkZRMbA
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiR3VzdGF2byBTYW1wYWlvIiwiaWF0IjoxNjM3NTQ1ODMzLCJleHAiOjE2Mzc1NDU4OTN9.X2WmznVlYVlhdagnzGU_WSdAag4-Y5bm0P2jrmDctc0
 
 ###
 GET http://localhost:3000/users
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiR3VzdGF2byBTYW1wYWlvIiwiaWF0IjoxNjM2NDE3ODA1LCJleHAiOjE2MzY0MTc4NjV9.gmPDfbnqBoCCpODXrYl50ZfnqnXzMyIc7uGNXkZRMbA
+Authorization: Bearer 
 
 ###
 GET http://localhost:3000/users/2
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiR3VzdGF2byBTYW1wYWlvIiwiaWF0IjoxNjM2NDE3ODA1LCJleHAiOjE2MzY0MTc4NjV9.gmPDfbnqBoCCpODXrYl50ZfnqnXzMyIc7uGNXkZRMbA
+Authorization: Bearer 
 
 ###
 POST http://localhost:3000/users
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiR3VzdGF2byBTYW1wYWlvIiwiaWF0IjoxNjM1MjkyMjExfQ.TMAFqJC0OZXs_YlR_2wiUcdKRg_3ttsJ1QdyyOpi-yQ
+Authorization: Bearer 
 
 {
     "Nome": "Rajesh Ota",
@@ -37,35 +37,35 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiR3VzdGF2b
 ###
 PUT http://localhost:3000/users/3
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiR3VzdGF2byBTYW1wYWlvIiwiaWF0IjoxNjM1MjkyMjExfQ.TMAFqJC0OZXs_YlR_2wiUcdKRg_3ttsJ1QdyyOpi-yQ
+Authorization: Bearer 
 
 {   
     "Nome": "João Victor Ota",
     "Email": "rajesh@globo.com",
-    "Idade": "25",
+    "Idade": "20",
     "CPF": "123456789"
 }
 
 ###
 DELETE http://localhost:3000/users/4
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiR3VzdGF2byBTYW1wYWlvIiwiaWF0IjoxNjM1MjkyMjExfQ.TMAFqJC0OZXs_YlR_2wiUcdKRg_3ttsJ1QdyyOpi-yQ
+Authorization: Bearer 
 
 // REQUISIÇÕES DE ITENS
 ###
 GET http://localhost:3000/itens/
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiR3VzdGF2byBTYW1wYWlvIiwiaWF0IjoxNjM1MjkyMjExfQ.TMAFqJC0OZXs_YlR_2wiUcdKRg_3ttsJ1QdyyOpi-yQ
+Authorization: Bearer 
 
 ###
 GET http://localhost:3000/itens/3
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiR3VzdGF2byBTYW1wYWlvIiwiaWF0IjoxNjM1MjkyMjExfQ.TMAFqJC0OZXs_YlR_2wiUcdKRg_3ttsJ1QdyyOpi-yQ
+Authorization: Bearer 
 
 ###
 POST http://localhost:3000/itens
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiR3VzdGF2byBTYW1wYWlvIiwiaWF0IjoxNjM1MjkyMjExfQ.TMAFqJC0OZXs_YlR_2wiUcdKRg_3ttsJ1QdyyOpi-yQ
+Authorization: Bearer 
 
 {
   "Nome": "Espada Longa",
@@ -77,7 +77,7 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiR3VzdGF2b
 ###
 PUT http://localhost:3000/itens/2
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiR3VzdGF2byBTYW1wYWlvIiwiaWF0IjoxNjM1MjkyMjExfQ.TMAFqJC0OZXs_YlR_2wiUcdKRg_3ttsJ1QdyyOpi-yQ
+Authorization: Bearer 
 
 {   
   "Nome": "Espada Curta",
@@ -89,22 +89,22 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiR3VzdGF2b
 ###
 DELETE http://localhost:3000/itens/5
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiR3VzdGF2byBTYW1wYWlvIiwiaWF0IjoxNjM1MjkyMjExfQ.TMAFqJC0OZXs_YlR_2wiUcdKRg_3ttsJ1QdyyOpi-yQ
+Authorization: Bearer 
 
 ###
 GET http://localhost:3000/rooms/
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiR3VzdGF2byBTYW1wYWlvIiwiaWF0IjoxNjM1MjkyMjExfQ.TMAFqJC0OZXs_YlR_2wiUcdKRg_3ttsJ1QdyyOpi-yQ
+Authorization: Bearer 
 
 ###
 GET http://localhost:3000/rooms/1
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiR3VzdGF2byBTYW1wYWlvIiwiaWF0IjoxNjM1MjkyMjExfQ.TMAFqJC0OZXs_YlR_2wiUcdKRg_3ttsJ1QdyyOpi-yQ
+Authorization: Bearer 
 
 ###
 POST http://localhost:3000/rooms
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiR3VzdGF2byBTYW1wYWlvIiwiaWF0IjoxNjM1MjkyMjExfQ.TMAFqJC0OZXs_YlR_2wiUcdKRg_3ttsJ1QdyyOpi-yQ
+Authorization: Bearer 
 
 {
   "Nome": "Ilha da Wano",
@@ -116,7 +116,7 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiR3VzdGF2b
 ###
 PUT http://localhost:3000/rooms/2
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiR3VzdGF2byBTYW1wYWlvIiwiaWF0IjoxNjM1MjkyMjExfQ.TMAFqJC0OZXs_YlR_2wiUcdKRg_3ttsJ1QdyyOpi-yQ
+Authorization: Bearer 
 
 {
     "Nome": "Ilha Nublar",
@@ -128,18 +128,16 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiR3VzdGF2b
 ###
 DELETE http://localhost:3000/rooms/1
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiR3VzdGF2byBTYW1wYWlvIiwiaWF0IjoxNjM1MjkyMjExfQ.TMAFqJC0OZXs_YlR_2wiUcdKRg_3ttsJ1QdyyOpi-yQ
+Authorization: Bearer 
 
 ###
 GET http://localhost:3000/cards/
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiR3VzdGF2byBTYW1wYWlvIiwiaWF0IjoxNjM1MjkyMjExfQ.TMAFqJC0OZXs_YlR_2wiUcdKRg_3ttsJ1QdyyOpi-yQ
-
+Authorization: Bearer 
 ###
 POST http://localhost:3000/cards
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiR3VzdGF2byBTYW1wYWlvIiwiaWF0IjoxNjM1MjkyMjExfQ.TMAFqJC0OZXs_YlR_2wiUcdKRg_3ttsJ1QdyyOpi-yQ
-
+Authorization: Bearer 
 {
   "Nome": "Zayon",
   "Tribe": "Ladino",
@@ -152,7 +150,7 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiR3VzdGF2b
 ###
 PUT http://localhost:3000/cards/1
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiR3VzdGF2byBTYW1wYWlvIiwiaWF0IjoxNjM1MjkyMjExfQ.TMAFqJC0OZXs_YlR_2wiUcdKRg_3ttsJ1QdyyOpi-yQ
+Authorization: Bearer 
 
 {
   "Nome": "Zayon",
@@ -166,4 +164,4 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiR3VzdGF2b
 ###
 DELETE http://localhost:3000/cards/2
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiR3VzdGF2byBTYW1wYWlvIiwiaWF0IjoxNjM1MjkyMjExfQ.TMAFqJC0OZXs_YlR_2wiUcdKRg_3ttsJ1QdyyOpi-yQ
+Authorization: Bearer 
