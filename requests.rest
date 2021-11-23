@@ -6,25 +6,30 @@ Content-Type: application/json
     "username":"Gustavo Sampaio"
 }
 
+//
 ###
 GET http://localhost:3000/logout
 Content-Type:  application/application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiR3VzdGF2byBTYW1wYWlvIiwiaWF0IjoxNjM3NTQ1ODMzLCJleHAiOjE2Mzc1NDU4OTN9.X2WmznVlYVlhdagnzGU_WSdAag4-Y5bm0P2jrmDctc0
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiR3VzdGF2byBTYW1wYWlvIiwiaWF0IjoxNjM3NjI4NTY4LCJleHAiOjE2Mzc2MzQ1Njh9.VYrSxtjWoEnr5PKJeH1T0vN5syL9-K0SEmw68niBwac
 
+///USERS
+//LISTAR USER
 ###
 GET http://localhost:3000/users
 Content-Type: application/json
-Authorization: Bearer 
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiR3VzdGF2byBTYW1wYWlvIiwiaWF0IjoxNjM3NjI4NTY4LCJleHAiOjE2Mzc2MzQ1Njh9.VYrSxtjWoEnr5PKJeH1T0vN5syL9-K0SEmw68niBwac
 
+//BUSCAR USER
 ###
 GET http://localhost:3000/users/2
 Content-Type: application/json
-Authorization: Bearer 
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiR3VzdGF2byBTYW1wYWlvIiwiaWF0IjoxNjM3NjI4MTE1LCJleHAiOjE2Mzc2MzQxMTV9.ER89Skb9MA2WF3wcjGyqW5LsB4lnLjF4pE3LjVqrL94
 
+//CRIAR USER
 ###
 POST http://localhost:3000/users
 Content-Type: application/json
-Authorization: Bearer 
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiR3VzdGF2byBTYW1wYWlvIiwiaWF0IjoxNjM3NjI4MTE1LCJleHAiOjE2Mzc2MzQxMTV9.ER89Skb9MA2WF3wcjGyqW5LsB4lnLjF4pE3LjVqrL94
 
 {
     "Nome": "Rajesh Ota",
@@ -34,34 +39,39 @@ Authorization: Bearer
     "Role": 2
 }
 
+//ATUALIZAR USERS
 ###
 PUT http://localhost:3000/users/3
 Content-Type: application/json
-Authorization: Bearer 
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiR3VzdGF2byBTYW1wYWlvIiwiaWF0IjoxNjM3NjI4NTQxLCJleHAiOjE2Mzc2MzQ1NDF9.Ds3xByvwQ9TWTyfvYn6MXFuWOyRy3dOF5o0Wl_zKfOM
 
 {   
-    "Nome": "João Victor Ota",
+    "Nome": "Vinicius Barros",
     "Email": "rajesh@globo.com",
     "Idade": "20",
     "CPF": "123456789"
 }
 
+//DELETE USERS
 ###
 DELETE http://localhost:3000/users/4
 Content-Type: application/json
-Authorization: Bearer 
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiR3VzdGF2byBTYW1wYWlvIiwiaWF0IjoxNjM3NjI4NTY4LCJleHAiOjE2Mzc2MzQ1Njh9.VYrSxtjWoEnr5PKJeH1T0vN5syL9-K0SEmw68niBwac
 
-// REQUISIÇÕES DE ITENS
+/// REQUISIÇÕES DE ITENS
+// LISTAR ITENS
 ###
 GET http://localhost:3000/itens/
 Content-Type: application/json
 Authorization: Bearer 
 
+//BUSCAR ITEM
 ###
 GET http://localhost:3000/itens/3
 Content-Type: application/json
 Authorization: Bearer 
 
+//CRIAR LISTA
 ###
 POST http://localhost:3000/itens
 Content-Type: application/json
@@ -74,6 +84,7 @@ Authorization: Bearer
   "Decrição": "Espada GPC"
 }
 
+//ATUALIZAR ITEM
 ###
 PUT http://localhost:3000/itens/2
 Content-Type: application/json
@@ -86,21 +97,25 @@ Authorization: Bearer
   "Decrição": "Espada GPC"
 }
 
+//DELETE ITENS
 ###
 DELETE http://localhost:3000/itens/5
 Content-Type: application/json
 Authorization: Bearer 
 
+//LISTAR ROOMS
 ###
 GET http://localhost:3000/rooms/
 Content-Type: application/json
 Authorization: Bearer 
 
+//BUSCAR UM ROOM
 ###
 GET http://localhost:3000/rooms/1
 Content-Type: application/json
 Authorization: Bearer 
 
+//CRIAR ROOMS
 ###
 POST http://localhost:3000/rooms
 Content-Type: application/json
@@ -113,6 +128,7 @@ Authorization: Bearer
   "Amount": "3"
 }
 
+//ATUALIZAR ROOMS
 ###
 PUT http://localhost:3000/rooms/2
 Content-Type: application/json
@@ -125,15 +141,19 @@ Authorization: Bearer
     "Amount": "7"
 }
 
+//DELETE ROOMS
 ###
 DELETE http://localhost:3000/rooms/1
 Content-Type: application/json
 Authorization: Bearer 
 
+//CARDS LIST
 ###
 GET http://localhost:3000/cards/
 Content-Type: application/json
 Authorization: Bearer 
+
+//CARDS CREATE
 ###
 POST http://localhost:3000/cards
 Content-Type: application/json
@@ -147,6 +167,7 @@ Authorization: Bearer
   "Description": "Maluco doido"
 }
 
+//CARDS UPDATE
 ###
 PUT http://localhost:3000/cards/1
 Content-Type: application/json
@@ -161,6 +182,7 @@ Authorization: Bearer
   "Description": "Maluco doido"
 }
 
+// CARDS DELETE
 ###
 DELETE http://localhost:3000/cards/2
 Content-Type: application/json

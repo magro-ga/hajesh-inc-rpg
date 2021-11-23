@@ -55,7 +55,7 @@ routes.post('/login', (req, res) => {
     const username = req.body.username
     const user = { name: username}
 
-    const accessToken = jwt.sign(user, process.env.ACCESS_TOKEN_SECRET, {expiresIn: 60})
+    const accessToken = jwt.sign(user, process.env.ACCESS_TOKEN_SECRET, {expiresIn: 6000})
     res.json({ accessToken: accessToken})
 })
 
@@ -121,7 +121,7 @@ routes.put('/users/:id', authenticateToken, (req, res) => {
         var userBody = req.body
 
         db.forEach((users) => {
-            if(users.Id === user.User.Id){
+            if(users.Id === req.params.id){
                 users.Nome = userBody.Nome;
                 users.Email = userBody.Email;
                 users.Idade = userBody.Idade;
@@ -257,7 +257,7 @@ routes.get('/rooms/:id', authenticateToken,(req, res) => {
                 res.status(200).json(rooms)
             }
         })
-        res.status(404).send({ Message: "The user doesn´t exist!"})
+        res.status(404).send({ Message: "The room doesn´t exist!"})
     }else{
         res.status(403).send({ Message: "The user have no permission"})
     }
